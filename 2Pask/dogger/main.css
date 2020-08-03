@@ -1,0 +1,32 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* nusitaikom i klase */
+
+.logo {
+    /* nurodom savybes  */
+    text-decoration: none;
+    font-size: 36px;
+}
+
+
+/* darom nav el inline block stiliaus kad neuzimtu 100% vietos eiluteje */
+
+nav {
+    /* display: inline-block; */
+    float: right;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: black;
+    padding: 14px 15px;
+    display: inline-block;
+}
