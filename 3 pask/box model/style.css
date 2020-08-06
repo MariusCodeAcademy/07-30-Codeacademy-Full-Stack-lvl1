@@ -1,0 +1,97 @@
+/* pasitikrinti */
+
+body {
+    /* background-color: black; */
+}
+
+
+/* padding fix. paddingas nebedidina elemento dydzio */
+
+* {
+    box-sizing: border-box;
+}
+
+.box {
+    width: 200px;
+    height: 100px;
+    border: 2px solid black;
+    padding: 30px;
+    margin: 20px;
+    background-color: lightcoral;
+}
+
+.box1 {
+    margin-top: 50px;
+}
+
+.separate {
+    /* padding-top: 1px; */
+}
+
+
+/* bloko elemento centravimas */
+
+main {
+    max-width: 500px;
+    margin: 0 auto;
+    border: 2px dashed gray;
+}
+
+
+/* elementu isdeliojimas vienas salia kito */
+
+
+/* inline-block metodas */
+
+.side {
+    border: 2px dashed gray;
+}
+
+
+/* sudurtinis selektorius */
+
+
+/* taisykles galioja tik .box elementams esantiems .side viduje */
+
+.side .box {
+    display: inline-block;
+    width: 29%;
+}
+
+h3 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+
+/* Float metodas */
+
+.float-m {
+    border: 2px dashed gray;
+}
+
+.float-m .box {
+    float: left;
+}
+
+.clearfix {
+    clear: both;
+}
+
+
+/* Side by side  */
+
+.article__image,
+.article__text {
+    display: inline-block;
+}
+
+.article__image {
+    width: 30%;
+    vertical-align: top;
+}
+
+.article__text {
+    width: 60%;
+}
