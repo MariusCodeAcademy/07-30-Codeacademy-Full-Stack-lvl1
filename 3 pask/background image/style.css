@@ -1,0 +1,29 @@
+body {
+    /* background-color: black; */
+}
+
+.normal-image {
+    display: block;
+    margin: auto;
+    width: 60%;
+}
+
+.image {
+    height: 300px;
+    border: 2px solid gray;
+    background-color: #be3838;
+    background-image: url("cat.jpg");
+    background-repeat: no-repeat;
+    /* sutrumpinta versija */
+    /* background: url(cat.jpg) no-repeat center; */
+    /* virselio fono paveiksleis */
+    background-size: cover;
+}
+
+
+/* centruoti bloko elementa */
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
