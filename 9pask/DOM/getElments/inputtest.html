@@ -5,14 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input test</title>
+    <style>
+        .box {
+            padding: 0 15px;
+            border: 1px solid #000;
+            min-height: 300px;
+            margin-top: 30px;
+        }
+        
+        p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <nav>
-        <a href="/index.html">Dom</a>
+        <a href="./index.html">Dom</a>
         <a href="./inputtest.html">Input test</a>
     </nav>
     <h1>Input fun </h1>
+
+    <div>
+        <label for="myInput">Iveskite kazka</label>
+        <input onkeyup="getTextAndOuput()" id="myInput" type="text">
+        <button onclick="createNewElmWithVal()">Vygdyti</button>
+    </div>
+
+    <div class="box">
+        <h3>Rezultatas</h3>
+        <p id="output"></p>
+        <ul id="ulOutput">
+            <!-- <li>value</li> -->
+        </ul>
+    </div>
 
 
     <script src="./input.js"></script>
