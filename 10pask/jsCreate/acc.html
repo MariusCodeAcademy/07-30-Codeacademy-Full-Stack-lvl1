@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acc</title>
+    <style>
+        h3,
+        p {
+            padding: 0;
+            margin: 0;
+        }
+        
+        article {
+            margin-bottom: 25px;
+        }
+        
+        .text {
+            /* negalima animacija */
+            /* display: none; */
+            height: 0;
+            overflow: hidden;
+            transition: height 0.2s ease-out;
+        }
+        
+        .text.open {
+            height: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simle accordion</h1>
+
+    <div class="accordion">
+        <article>
+            <h3 class="title">Title 1</h3>
+            <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse perspiciatis accusantium dolorum consequatur repellendus illo.</p>
+        </article>
+        <article>
+            <h3 class="title">Title 2</h3>
+            <p class="text open">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse perspiciatis accusantium dolorum consequatur repellendus illo.</p>
+        </article>
+        <article>
+            <h3 class="title">Title 3</h3>
+            <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse perspiciatis accusantium dolorum consequatur repellendus illo.</p>
+        </article>
+    </div>
+
+
+    <script src="./acc.js"></script>
+</body>
+
+</html>

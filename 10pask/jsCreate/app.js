@@ -50,4 +50,19 @@ myBtn.addEventListener('click', function() {
 // ==================================================
 let liEl = document.createElement('li');
 liEl.innerHTML = 'item 0 (prepend)';
-document.getElementById('ul').prepend(liEl);
+let ulEl = document.getElementById('ul');
+ulEl.prepend(liEl);
+
+// ==========================================
+// el.insertBefore(newEl, kurikelti) ikelimas i specifine vieta
+let liEl2 = document.createElement('li');
+liEl2.innerHTML = 'item Specific (inserBefore)';
+ulEl.insertBefore(liEl2, ulEl.childNodes[5]);
+
+// ================================================
+// event objektas 
+ulEl.addEventListener('click', function(event) {
+    // console.log(event);
+    // console.log(event.target);
+    event.target.style.fontWeight = 'bold';
+});
