@@ -21,6 +21,10 @@ body {
     width: 500px;
 }
 
+i {
+    cursor: pointer;
+}
+
 
 /* Styling clases */
 

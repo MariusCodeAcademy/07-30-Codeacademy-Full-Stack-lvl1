@@ -6,13 +6,15 @@ let todos = [
     { name: 'Learn Html', done: false, edit: false },
     { name: 'Style witn Css', done: true, edit: true },
     { name: 'Act with Js Forever', done: false, edit: false }
+];
 
-]
+// todos = [];
 
 // isitraukiam elementus i javascript
 const listElement = document.getElementById('list');
 const inputElement = document.getElementById('input');
 const addBtnElement = document.getElementById('add-todo-btn');
+const clearEl = document.querySelector('.clear');
 
 
 // Helper Functions ====================================================
@@ -57,9 +59,14 @@ function getTodoIdValueFromAttr(itemThatWasClicked) {
 
 
 
-
 function render() {
     listElement.innerHTML = '';
+
+    if (todos.length === 0) {
+        listElement.innerHTML = '<p class="no-todo-text">There are no todos, please add some</p>'
+        return;
+    }
+    console.log('test123');
 
     let classCheck, textChecked, todoId = 0;
     todos.forEach(function(todo) {
@@ -193,5 +200,30 @@ listElement.addEventListener('click', function(event) {
 
     }
 
+});
 
+// Date 
+function myDate() {
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    }
+    const now = new Date();
+    console.log(now);
+    const localDate = now.toLocaleDateString('lt', options)
+    console.log(localDate);
+    document.getElementById('date').innerHTML = localDate;
+
+}
+
+myDate();
+
+// Reset
+
+clearEl.addEventListener('click', function() {
+    // strinti visus todo
+    todos = [];
+    render();
 })
