@@ -5,6 +5,27 @@ print_r($_POST);
 
 echo '<hr>';
 
+if (isset($_POST['sendBtn'])) {
+    // buvo paspaustas send
+
+    foreach ($_POST as $key => $val) {
+        echo "
+        <div>
+            <span class='key'> $key - </span>
+            <span> $val </span>
+        </div>
+        ";
+    }
+
+
+
+
+}
+
+
+
+
+
 
 
 // echo "Name you entered is {$_POST['fname']}";
@@ -36,8 +57,8 @@ function issSetAndNotEmpty($name) {
     }
 }
 
-issSetAndNotEmpty('fname');
-issSetAndNotEmpty('pass');
+// issSetAndNotEmpty('fname');
+// issSetAndNotEmpty('pass');
 
 
 
