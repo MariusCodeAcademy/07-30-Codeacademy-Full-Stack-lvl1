@@ -1,0 +1,329 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* nustatom parsiusta srifta is google */
+
+body {
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section {
+    /* padding-top: 4%; */
+    padding-bottom: 3%;
+}
+
+
+/* nusitaikom i klase */
+
+.logo {
+    /* nurodom savybes  */
+    text-decoration: none;
+    font-size: 36px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+
+/* darom nav el inline block stiliaus kad neuzimtu 100% vietos eiluteje */
+
+nav {
+    /* display: inline-block; */
+    float: right;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: black;
+    padding: 14px 15px;
+    display: inline-block;
+}
+
+.clearfix {
+    clear: both;
+}
+
+
+/* Hero secion ======================================*/
+
+.full-h {
+    /* vh yra viewport height */
+    height: 100vh;
+    /* skaiciuojama skaitine reiksme */
+    /* height: calc(100vh - 50px); */
+    display: flex;
+    align-items: center;
+}
+
+.text-block {
+    max-width: 520px;
+    /* padding-top: 150px;
+    padding-bottom: 150px; */
+    /* background-color: lightgray; */
+}
+
+h1 {
+    font-size: 64px;
+    margin: 0;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.subtitle {
+    color: gray;
+    font-weight: 300;
+}
+
+.bg-dog {
+    background: url("./img/dogg.png") no-repeat bottom right;
+    background-size: 400px;
+}
+
+
+/* Welcome secion ======================================*/
+
+.first-row {
+    max-width: 570px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.welcome__heading {
+    font-size: 32px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.welcome__subtitle {
+    color: #808080;
+}
+
+.welcome-ar {
+    display: flex;
+    text-align: right;
+    /* across asimi centruojam text block */
+    align-items: center;
+}
+
+.welcome-ar__img {
+    display: block;
+    width: 50%;
+    /* kontroliuojamas perejimo efektas */
+    transition: box-shadow 0.3s;
+}
+
+
+/* pelyte uzvesta busena  */
+
+.welcome-ar__img:hover {
+    box-shadow: 14px 14px 0px 0px #0b523b;
+}
+
+.welcome-ar__text-block {
+    padding-right: 9%;
+    width: 50%;
+}
+
+.welcome-ar__text-block h3 {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.welcome-ar__text-block p {
+    color: #808080;
+}
+
+.read-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 9px 24px;
+    background-color: #a2c0be;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+
+/* sudurtinis selectorius kai turime modifikuota straipsni */
+
+.welcome-ar--img-right {
+    text-align: left;
+}
+
+.welcome-ar--img-right .welcome-ar__img {
+    width: 49%;
+}
+
+.welcome-ar--img-right .welcome-ar__text-block {
+    padding-right: 0;
+    padding-left: 9%;
+    width: 51%;
+}
+
+
+/* Our trainers section  */
+
+.trainers {
+    padding-top: 3%;
+    background-color: #5678768c;
+}
+
+.trainers-ar-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.trainers-ar {
+    margin-right: 20px;
+}
+
+.trainers-ar:hover .trainers-ar__img {
+    box-shadow: 14px 14px 0px 0px #0b523b;
+}
+
+.trainers-ar__img {
+    transition: box-shadow 0.3s;
+    max-width: 100%;
+}
+
+.trainers-ar__title {
+    color: #405a58;
+}
+
+.trainers-ar__text {
+    color: #405a58;
+}
+
+.trainers-social {
+    display: flex;
+}
+
+.trainers-social .icon-outer {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    transition: transform 0.3s;
+}
+
+.trainers-social .icon-outer:hover {
+    transform: translateY(-10px);
+}
+
+
+/* Contact us section ==================== */
+
+.contact {
+    margin-top: 100px;
+}
+
+.flex {
+    display: flex;
+}
+
+.contact-col-left {
+    width: 55%;
+    background-color: #a2c0be;
+    padding: 48px;
+}
+
+.contact-title {
+    margin-top: 0;
+    color: #405a58;
+}
+
+.input-group50 {
+    display: inline-block;
+    width: 48%;
+}
+
+.input-group label {
+    color: #567876;
+    font-size: 16px;
+    margin: 8px 0;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+}
+
+.input-group textarea {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+    min-height: 120px;
+}
+
+.float-right {
+    float: right;
+}
+
+.submit {
+    border: none;
+    background-color: #333;
+    font-size: 17px;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+
+/* col right */
+
+.contact-col-right {
+    width: 45%;
+    background-color: #6c757d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-right-inner {
+    max-width: 60%;
+    color: #fff;
+}
+
+.contact-col-right__img {
+    display: block;
+    margin: 20px auto;
+}
+
+.contact-col-right__title {
+    text-align: center;
+    color: #fff;
+}
+
+
+
+footer h3 {
+    text-align: center;
+}
+
+.nav-item.current-page {
+    font-weight: bold;
+}
