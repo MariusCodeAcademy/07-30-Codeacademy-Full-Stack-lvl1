@@ -2,8 +2,8 @@
 
 class Person extends LivingThing
 {
-    // savybes
-    private $name;
+    // savybesprivate $name;
+
     private $lname;
 
     // konstruktorius
@@ -17,6 +17,6 @@ class Person extends LivingThing
     // method
     public function getPersonInfo()
     {
-        return $this->name . ' ' . $this->lname . ' yra gimes ';
+        return $this->name . ' ' . $this->lname . ' yra gimes ' . $this->birthDate . '<br>';
     }
 }
