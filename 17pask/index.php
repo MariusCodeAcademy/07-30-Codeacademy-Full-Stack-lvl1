@@ -49,6 +49,7 @@ require './class/Job.php';
 
     // pabaikime pirmaji darba
     $freelancer1->finishJob(0);
+    $freelancer1->finishJob(1);
 
     // atsipausdinam nauja freelancer
     echo 'pabaigem darba id 0<br>';
@@ -57,6 +58,7 @@ require './class/Job.php';
 
     // gauname freelancerio atlyginima
     echo 'Evento atlyginimas siai dienai<br>';
+    echo $freelancer1->withdrawSalary();
     echo $freelancer1->withdrawSalary();
 
     echo 'freelanceris po algos ismokejimo.<br>';

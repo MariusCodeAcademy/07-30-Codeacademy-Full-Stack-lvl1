@@ -4,6 +4,7 @@ require './class/Employee.php';
 require './class/Freelancer.php';
 require './class/Worker.php';
 require './class/Job.php';
+require_once './class/PrintPayslip.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,14 +64,21 @@ require './class/Job.php';
     // print_r($employees);
 
     // bedras algalapis
-    echo '<h2>Algalapis</h2>';
-    echo '<ul>';
-    foreach ($employees as $employee) {
-        $fullName = $employee->getFullName();
-        $salary = $employee->withdrawSalary();
-        echo "<li> $fullName: $salary </li>";
-    }
-    echo '</ul>';
+    // echo '<h2>Algalapis</h2>';
+    // echo '<ul>';
+    // foreach ($employees as $employee) {
+    //     $fullName = $employee->getFullName();
+    //     $salary = $employee->withdrawSalary();
+    //     echo "<li> $fullName: $salary </li>";
+    // }
+    // echo '</ul>';
+
+    $payslip = new PrintPayslip($employees);
+
+    // $payslip->printAsList();
+    $payslip->printTable();
+
+    print_r($employees);
 
 
 
@@ -85,6 +93,8 @@ require './class/Job.php';
 
     ?>
     </pre>
+
+
 
 </body>
 
