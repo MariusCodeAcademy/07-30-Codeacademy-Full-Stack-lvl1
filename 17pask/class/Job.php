@@ -9,11 +9,12 @@ class Job
     private $done;
 
     // darbo sukurimo metu paduodami argumentai ir nustatomos reiksmes 
-    public function __construct($argTitle, $argAmount)
+    public function __construct($argId, $argTitle, $argAmount)
     {
         $this->title = $argTitle;
         $this->amount = $argAmount;
         $this->done = false;
+        $this->id = $argId;
     }
 
     // metodas geteris savybei ID
