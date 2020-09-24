@@ -46,6 +46,28 @@ class DB
         }
     }
 
+    // gauti duomenis is lenteles
+    public function getTableRows()
+    {
+        // nuskaityti, gauti visus stulpelius is lenteles cars
+        $sql = "SELECT * FROM cars";
+
+        // nusiusti uzklausa
+        $resultMysqlObj = $this->conn->query($sql);
+
+        // atsispausdinam ka gavom
+        // print_r($resultMysqlObj);
+
+        // pasitikriname ar gavome nors viena irasa(eilute)
+        if ($resultMysqlObj->num_rows > 0) {
+            // gavom bent viena eilute informacijos
+            return $resultMysqlObj->fetch_all(MYSQLI_ASSOC);
+        } else {
+            // negavom nei vienos eilutes
+            echo '0 eiluciu atitiko uzklausa<br>';
+        }
+    }
+
 
 
     public function closeConnection()

@@ -1,5 +1,18 @@
 <?php
 require_once('./class/DB.php');
+$conn = new DB();
+// pasitikrinti ar forma issiusta
+if (isset($_POST['autoBtn'])) {
+    // buvo paspausta issiusti forma
+    // issisaugome formos irasus
+    $brand = $_POST['brand'];
+    $model = $_POST['model'];
+    $engine = $_POST['engine'];
+    $year = $_POST['year'];
+    // irasome i db
+    $conn->addCar($brand, $model, $engine, $year);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +26,17 @@ require_once('./class/DB.php');
 <body>
     <h1>Databases</h1>
 
+    <h3>Ikelkite nauja automobili</h3>
+
+    <!-- new myForm(); -->
+    <form action="index.php" method="post">
+        <input type="text" placeholder="Brand" name='brand' required>
+        <input type="text" placeholder="Model" name='model' required><br>
+        <input type="number" step="0.1" placeholder="Engine" name='engine' required>
+        <input type="text" placeholder="Year of make" name='year' required><br>
+        <button type="submit" name="autoBtn">Ikelti auto</button>
+    </form>
+
     <?php
     // echo 'online';
 
@@ -24,9 +48,29 @@ require_once('./class/DB.php');
     */
 
     // sukuriam nauja DB objekta ir jis prisijungia prie DB
-    $conn = new DB();
+    // $conn = new DB();
 
-    $conn->addCar('MB', "600", 6.0, 2010);
+    // ikelti nauja automobili
+    // $conn->addCar('MB', "600", 6.0, 2010);
+
+    // gauti visus irasus is lenteles
+    echo '<pre>';
+    $tableRowsArray = $conn->getTableRows();
+    // print_r($tableRowsArray);
+    echo '</pre>';
+
+    // atspausdinti duomenis is gauto masyvo
+    echo "<ul>";
+    foreach ($tableRowsArray as $row) {
+        // echo "<li> {$row['brand']} - {$row['model']} - {$row['engineVolume']} - {$row['year']} </li>";
+        // print_r($row);
+        echo '<li>';
+        foreach ($row as $key => $value) {
+            echo " - $value, ";
+        }
+        echo '</li>';
+    }
+    echo "</ul>";
 
 
 
