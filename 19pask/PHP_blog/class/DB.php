@@ -23,6 +23,11 @@ class DB
         $this->checkConnection();
     }
 
+    public function getConnection()
+    {
+        return $this->conn;
+    }
+
 
     // metodas pasitikrinti prisijungimui
     private function checkConnection()
@@ -89,6 +94,44 @@ class DB
         } else {
             // negavom nei vienos eilutes
             echo '<div class="alert alert-danger">0 eiluciu atitiko uzklausa</div>';
+        }
+    }
+
+    // metodas gauti viena posta pagal duota id
+    public function getPost($postId)
+    {
+        $sql = "SELECT * FROM Posts WHERE id = $postId";
+
+        // nusiusti uzklausa
+        $resultMysqlObj = $this->conn->query($sql);
+
+        // atsispausdinam ka gavom
+        // print_r($resultMysqlObj);
+
+        // pasitikriname ar gavome nors viena irasa(eilute)
+        if ($resultMysqlObj->num_rows > 0) {
+            // gavom bent viena eilute informacijos
+            return $resultMysqlObj->fetch_assoc();
+        } else {
+            // negavom nei vienos eilutes
+            echo '<div class="alert alert-danger">0 eiluciu atitiko uzklausa</div>';
+        }
+    }
+
+    // delete post metodas 
+    public function deletePost($postId)
+    {
+        // sql
+        $sql = "DELETE FROM Posts
+                WHERE id = $postId
+                LIMIT 1";
+
+        // pasitikrinti ar irasas sekmingas
+        if ($this->conn->query($sql) === TRUE) {
+            // irasas irasytas sekmingai sekmnigai
+            echo '<div class="alert alert-success">Irasas istrintas sekmingai!!!</div>';
+        } else {
+            echo '<div class="alert alert-danger">ivyko klaida: ' . $this->conn->error . '</div>';
         }
     }
 

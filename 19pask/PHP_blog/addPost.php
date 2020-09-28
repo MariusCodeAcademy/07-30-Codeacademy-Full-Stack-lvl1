@@ -52,3 +52,8 @@ require_once './inc/nav.php';
 
     </form>
 </section>
+
+
+<?php
+require_once './inc/footer.php';
+?>

@@ -25,9 +25,6 @@ require_once './inc/nav.php';
 
         foreach ($postsArray as $post) { ?>
 
-
-
-
             <!-- One Card -->
             <div class="card m-2" style="width: 18rem;">
                 <div class="card-body">
@@ -36,13 +33,18 @@ require_once './inc/nav.php';
                     <p class="card-text"><?php echo $post['body'] ?></p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="card-link d-block">View more</a>
+                    <a href="post.php?id=<?php echo $post['id'] ?>" class="card-link d-block">Read Post</a>
                     <p class="text-muted">Created at: <?php echo $post['created_at'] ?></p>
                 </div>
             </div>
             <!-- /One Card End -->
 
-        <?php } ?>
+        <?php };
+        // pasibandom ar veikia delete
+        // $conn->deletePost(2);
+        ?>
+
+
 
 
 
