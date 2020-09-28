@@ -15,61 +15,58 @@ require_once './inc/nav.php';
     <h1 class="display-3 mt-2 mb-4">PHP blog</h1>
 
 
+
     <div class="card-container d-flex flex-wrap ">
 
-        <!-- One Card -->
-        <div class="card m-2" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">First Post</h5>
-                <h6 class="card-subtitle mb-2 text-muted">John Dow</h6>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quod molestias eveniet alias animi? Adipisci fuga non officia laboriosam, amet reprehenderit, commodi molestiae veniam velit recusandae quia </p>
-            </div>
-            <div class="card-footer">
-                <a href="#" class="card-link d-block">View more</a>
-                <p class="text-muted">2020-09-15</p>
-            </div>
-        </div>
-        <!-- /One Card End -->
+        <?php
+        // gauname duomenis is lenteles
+        $postsArray = $conn->getPostsArray();
 
-        <!-- One Card -->
-        <div class="card m-2" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">First Post</h5>
-                <h6 class="card-subtitle mb-2 text-muted">John Dow</h6>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quod molestias eveniet alias animi? Adipisci fuga non officia laboriosam, amet reprehenderit, commodi molestiae veniam velit recusandae quia </p>
-            </div>
-            <div class="card-footer">
-                <a href="#" class="card-link d-block">View more</a>
-                <p class="text-muted">2020-09-15</p>
-            </div>
-        </div>
-        <!-- /One Card End -->
 
-        <!-- One Card -->
-        <div class="card m-2" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">First Post</h5>
-                <h6 class="card-subtitle mb-2 text-muted">John Dow</h6>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quod molestias eveniet alias animi? Adipisci fuga non officia laboriosam, amet reprehenderit, commodi molestiae veniam velit recusandae quia </p>
+        foreach ($postsArray as $post) { ?>
+
+
+
+
+            <!-- One Card -->
+            <div class="card m-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $post['title'] ?></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $post['author'] ?></h6>
+                    <p class="card-text"><?php echo $post['body'] ?></p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link d-block">View more</a>
+                    <p class="text-muted">Created at: <?php echo $post['created_at'] ?></p>
+                </div>
             </div>
-            <div class="card-footer">
-                <a href="#" class="card-link d-block">View more</a>
-                <p class="text-muted">2020-09-15</p>
-            </div>
-        </div>
-        <!-- /One Card End -->
+            <!-- /One Card End -->
+
+        <?php } ?>
+
+
+
     </div>
     <!-- end card container -->
 
 
 
-
+    <pre>
     <?php
+    // sukurti nauja lentele duomenu bazeje
+    // $conn->createPostsTable();
 
+    // irasyti nauja irasa i db lentele
+    // $conn->addPost('First post', 'Jane Jonson', 'This is our first post from DB method');
 
+    // pasibandome gauti duomenis masyvo pavidalu
+    // $postsArray = $conn->getPostsArray();
+
+    // print_r($postsArray);
 
 
     ?>
+    </pre>
 
 </div>
 <!-- container end -->

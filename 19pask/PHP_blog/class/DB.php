@@ -11,7 +11,7 @@ class DB
     private $servername = 'localhost';
     private $username = 'root';
     private $password = 'root';
-    private $dbname = 'cars_PHP';
+    private $dbname = 'PHP_blog';
     // savybe issaugoti prisijungimui
     public $conn;
 
@@ -35,27 +35,46 @@ class DB
             echo 'Prisijungta<br>';
         }
     }
-
-    // sukurti viena lenteles yrasa
-    public function addCar($carBrand, $carModel, $carEngine, $carYear)
+    // sukurti lentele irasams
+    public function createPostsTable()
     {
-        $sql = "INSERT INTO cars (brand, model, engineVolume, year)
-        VALUES('$carBrand', '$carModel', $carEngine, $carYear)";
+        $sql = "
+        CREATE TABLE Posts (
+            id INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            title VARCHAR(30) NOT NULL,
+            author VARCHAR(30) NOT NULL,
+            body TEXT NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        )";
 
-        // pasitikrinti ar irasas sekmingas
+        // pasitikrinti ar lentele sukurta 
         if ($this->conn->query($sql) === TRUE) {
-            // irasas irasytas sekmingai sekmnigai
-            echo 'irasas irasytas<br>';
+            echo 'lentele Posts sukurta sekmingai';
         } else {
             echo 'ivyko klaida: ' . $this->conn->error;
         }
     }
 
+    // sukurti viena lenteles yrasa
+    public function addPost($postTitle, $postAuthor, $postBody)
+    {
+        $sql = "INSERT INTO Posts (title, author, body)
+        VALUES('$postTitle', '$postAuthor', '$postBody')";
+
+        // pasitikrinti ar irasas sekmingas
+        if ($this->conn->query($sql) === TRUE) {
+            // irasas irasytas sekmingai sekmnigai
+            echo '<div class="alert alert-success">Irasas skurtas sekmingai!!!</div>';
+        } else {
+            echo '<div class="alert alert-danger">ivyko klaida: ' . $this->conn->error . '</div>';
+        }
+    }
+
     // gauti duomenis is lenteles
-    public function getTableRows()
+    public function getPostsArray()
     {
         // nuskaityti, gauti visus stulpelius is lenteles cars
-        $sql = "SELECT * FROM cars";
+        $sql = "SELECT * FROM Posts";
 
         // nusiusti uzklausa
         $resultMysqlObj = $this->conn->query($sql);
@@ -69,7 +88,7 @@ class DB
             return $resultMysqlObj->fetch_all(MYSQLI_ASSOC);
         } else {
             // negavom nei vienos eilutes
-            echo '0 eiluciu atitiko uzklausa<br>';
+            echo '<div class="alert alert-danger">0 eiluciu atitiko uzklausa</div>';
         }
     }
 
