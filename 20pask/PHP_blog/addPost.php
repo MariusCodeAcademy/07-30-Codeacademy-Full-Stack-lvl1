@@ -18,6 +18,7 @@ if (isset($_POST['submitBtn'])) {
     header('Location: index.php');
 }
 
+$currentPage = 'addPost';
 
 require_once './inc/head.php';
 require_once './inc/nav.php';

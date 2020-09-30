@@ -6,8 +6,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link active" href="index.php">Home</a>
-                <a class="nav-item nav-link" href="addPost.php">Add post</a>
+                <!-- ikeliam active klase dinamiskai priklausomai nuo tokiuriame psl esam -->
+                <a class="nav-item nav-link <?php if (isset($currentPage) && $currentPage === 'homePage') echo 'active' ?>" href="index.php">Home</a>
+                <a class="nav-item nav-link <?php if (isset($currentPage) && $currentPage === 'addPost') echo 'active' ?>" href="addPost.php">Add post</a>
             </div>
         </div>
     </div>

@@ -2,7 +2,7 @@
 require_once('./class/DB.php');
 $conn = new DB();
 
-
+$currentPage = 'homePage';
 require_once './inc/head.php';
 require_once './inc/nav.php';
 ?>
@@ -33,7 +33,7 @@ require_once './inc/nav.php';
                     <p class="card-text"><?php echo $post['body'] ?></p>
                 </div>
                 <div class="card-footer">
-                    <a href="post.php?id=<?php echo $post['id'] ?>" class="card-link d-block">Read Post</a>
+                    <a href="post.php?id=<?php echo $post['id'] ?>" class="card-link d-block"> <i class="fa fa-book" aria-hidden="true"></i> Read Post</a>
                     <p class="text-muted">Created at: <?php echo $post['created_at'] ?></p>
                 </div>
             </div>
