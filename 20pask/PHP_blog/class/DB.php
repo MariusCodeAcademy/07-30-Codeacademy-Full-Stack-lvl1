@@ -28,6 +28,17 @@ class DB
         return $this->conn;
     }
 
+    private function makeSendQuery($queryText, $msg)
+    {
+        // pasitikrinti ar irasas sekmingas
+        if ($this->conn->query($queryText) === TRUE) {
+            // irasas irasytas sekmingai sekmnigai
+            echo '<div class="alert alert-info">' . $msg . '</div>';
+        } else {
+            echo '<div class="alert alert-danger">ivyko klaida: ' . $this->conn->error . '</div>';
+        }
+    }
+
 
     // metodas pasitikrinti prisijungimui
     private function checkConnection()
@@ -52,12 +63,7 @@ class DB
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )";
 
-        // pasitikrinti ar lentele sukurta 
-        if ($this->conn->query($sql) === TRUE) {
-            echo 'lentele Posts sukurta sekmingai';
-        } else {
-            echo 'ivyko klaida: ' . $this->conn->error;
-        }
+        $this->makeSendQuery($sql, 'lentele Posts sukurta sekmingai');
     }
 
     // sukurti viena lenteles yrasa
@@ -66,13 +72,8 @@ class DB
         $sql = "INSERT INTO Posts (title, author, body)
         VALUES('$postTitle', '$postAuthor', '$postBody')";
 
-        // pasitikrinti ar irasas sekmingas
-        if ($this->conn->query($sql) === TRUE) {
-            // irasas irasytas sekmingai sekmnigai
-            echo '<div class="alert alert-success">Irasas skurtas sekmingai!!!</div>';
-        } else {
-            echo '<div class="alert alert-danger">ivyko klaida: ' . $this->conn->error . '</div>';
-        }
+        // po refactorinimo
+        $this->makeSendQuery($sql, 'Irasas skurtas sekmingai!!!');
     }
 
     // metodas atnaujinti irasaui duomenu bazeje
@@ -85,13 +86,7 @@ class DB
             LIMIT 1
         ";
 
-        // pasitikrinti ar irasas sekmingas
-        if ($this->conn->query($sql) === TRUE) {
-            // irasas irasytas sekmingai sekmnigai
-            echo '<div class="alert alert-success">Irasas atnaujintas sekmingai!!!</div>';
-        } else {
-            echo '<div class="alert alert-danger">ivyko klaida: ' . $this->conn->error . '</div>';
-        }
+        $this->makeSendQuery($sql, 'Irasas atnaujintas sekmingai!!!');
     }
 
 
@@ -147,13 +142,7 @@ class DB
                 WHERE id = $postId
                 LIMIT 1";
 
-        // pasitikrinti ar irasas sekmingas
-        if ($this->conn->query($sql) === TRUE) {
-            // irasas irasytas sekmingai sekmnigai
-            echo '<div class="alert alert-success">Irasas istrintas sekmingai!!!</div>';
-        } else {
-            echo '<div class="alert alert-danger">ivyko klaida: ' . $this->conn->error . '</div>';
-        }
+        $this->makeSendQuery($sql, 'Irasas istrintas sekmingai!!!');
     }
 
 

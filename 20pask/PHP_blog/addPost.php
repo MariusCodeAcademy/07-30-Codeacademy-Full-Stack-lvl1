@@ -2,8 +2,7 @@
 require_once('./class/DB.php');
 $conn = new DB();
 
-
-// handle form input 
+// handle form input
 // pasitikrinti ar forma issiusta
 if (isset($_POST['submitBtn'])) {
     // buvo paspausta issiusti forma

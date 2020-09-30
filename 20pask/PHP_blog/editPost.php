@@ -1,17 +1,25 @@
 <?php
 require_once('./class/DB.php');
+require_once('./class/functions.php');
 $conn = new DB();
 
+// sita refactorinom id zemiau esancias 3 eilutes
+// // pasitikriname ar yra nustatytas id
+// if (isset($_GET['id']) && !empty($_GET['id'])) {
+//     // id yra gautas ir vygdom uzklausa
+//     // padaryti reiksme gauta is get atributo saugia naudoti su mysql
+//     $postID = mysqli_real_escape_string($conn->getConnection(), $_GET['id']);
+//     $post = $conn->getPost($postID);
+// } else {
+//     die('id nenustatytas');
+// }
 
-// pasitikriname ar yra nustatytas id
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    // id yra gautas ir vygdom uzklausa
-    // padaryti reiksme gauta is get atributo saugia naudoti su mysql
-    $postID = mysqli_real_escape_string($conn->getConnection(), $_GET['id']);
-    $post = $conn->getPost($postID);
-} else {
-    die('id nenustatytas');
-}
+$getArray = HelperFunctions::checkGetVar('id', $conn);
+$postID = $getArray[0];
+$post = $getArray[1];
+
+
+
 
 
 
@@ -30,7 +38,7 @@ if (isset($_POST['submitBtn'])) {
     // isvalome post masyva
     $_POST = [];
     // nukreipti i pabgrini puslapi 
-    header('Location: index.php');
+    // header('Location: index.php');
 }
 
 

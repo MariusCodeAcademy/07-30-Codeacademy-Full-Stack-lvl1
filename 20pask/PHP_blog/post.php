@@ -1,28 +1,17 @@
 <?php
 require_once('./class/DB.php');
+require_once('./class/functions.php');
 $conn = new DB();
 // print_r($conn);
 // die();
-
-
-
-
 
 require_once './inc/head.php';
 require_once './inc/nav.php';
 
 
-
-
-// pasitikriname ar yra nustatytas id
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    // id yra gautas ir vygdom uzklausa
-    // padaryti reiksme gauta is get atributo saugia naudoti su mysql
-    $postID = mysqli_real_escape_string($conn->getConnection(), $_GET['id']);
-    $post = $conn->getPost($postID);
-} else {
-    die('id nenustatytas');
-}
+$getArray = HelperFunctions::checkGetVar('id', $conn);
+$postID = $getArray[0];
+$post = $getArray[1];
 
 
 // delete formos funkcionalumas
