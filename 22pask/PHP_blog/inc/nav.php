@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="index.php">PHP Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <!-- ikeliam active klase dinamiskai priklausomai nuo tokiuriame psl esam -->
+                <a class="nav-item nav-link <?php if (isset($currentPage) && $currentPage === 'homePage') echo 'active' ?>" href="index.php">Home</a>
+                <a class="nav-item nav-link <?php if (isset($currentPage) && $currentPage === 'addPost') echo 'active' ?>" href="addPost.php">Add post</a>
+            </div>
+        </div>
+    </div>
+</nav>
